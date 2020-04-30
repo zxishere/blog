@@ -1,16 +1,7 @@
 FROM php:7.3-apache-stretch
 
-RUN echo deb http://mirrors.163.com/debian/ stretch main non-free contrib \
-         deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib \
-         deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib \
-         deb-src http://mirrors.163.com/debian/ stretch main non-free contrib \
-         deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib \
-         deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib \
-         deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib \
-         deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib \
-         > /etc/apt/sources.list && \
-         apt-get -y update && \
-         apt-get -y upgrade
+RUN apt-get -y update && \
+        apt-get -y upgrade
 
 RUN apt-get install -y gnupg2 apt-transport-https ca-certificates && \
     #apt-get install -y libapache2-mod-evasive && \
