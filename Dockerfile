@@ -3,7 +3,7 @@ FROM php:7.3-apache-stretch
 RUN apt-get -y update && \
         apt-get -y upgrade
 
-RUN apt-get install -y gnupg2 apt-transport-https ca-certificates && \
+RUN apt-get install -y git gnupg2 apt-transport-https ca-certificates && \
     #apt-get install -y libapache2-mod-evasive && \
     #a2dismod mpm_event && \
     #a2enmod evasive && \
@@ -41,7 +41,7 @@ RUN a2enmod rewrite
 COPY . $APP_HOME
 
 # install all PHP dependencies
-RUN composer install --no-interaction
+RUN composer install --no-interaction --no-dev
 
 #change ownership of our applications
 RUN chown -R www-data:www-data $APP_HOME
