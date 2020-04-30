@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $monolog = $this->app->make('log')->getMonolog();
+        $monolog->popHandler();
+        $monolog->pushHandler(new StreamHandler('php://stderr'));
     }
 
     /**
