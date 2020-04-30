@@ -27,4 +27,4 @@ ADD public/info.php /var/www/html/info.php
 
 ENTRYPOINT []
 
-CMD sed -i -e "s/Listen 80/Listen $PORT/g"/etc/apache2/ports.conf && apache2-foreground
+CMD sed -i "s/Listen 80/Listen ${PORT}/g" /etc/apache2/ports.conf && apache2-foreground
