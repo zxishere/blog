@@ -19,8 +19,8 @@ RUN docker-php-ext-configure gd \
     --with-png-dir=/usr/include \
     --with-freetype-dir=/usr/include && \
     pecl install sqlsrv pdo_sqlsrv redis imagick && \
-    docker-php-ext-install gd pcntl pdo pdo_pgsql && \
-    docker-php-ext-enable sqlsrv pdo_sqlsrv redis imagick gd pcntl pdo pdo_pgsql
+    docker-php-ext-install bcmath gd pcntl pdo pdo_pgsql && \
+    docker-php-ext-enable bcmath gd pcntl pdo pdo_pgsql sqlsrv pdo_sqlsrv redis imagick
 
 #install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
